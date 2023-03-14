@@ -2,7 +2,7 @@ biolib_version: 2
 modules:
   main:
     image: 'local-docker://prediction-app:latest'
-    command:'python3 predict.py'  # Command to run inside the container (environment)
+    command: 'python3 predict.py'  # Command to run inside the container (environment)
     input_files:  # Where to put user input files inside the container
       - COPY / /
     output_files:  # Which output files or folders to return to the user from the container
