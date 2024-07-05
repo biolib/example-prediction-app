@@ -6,7 +6,7 @@ Everytime you run a job on Biolib.com, an AWS server runs a Docker image you bui
 
 How do we deploy our app on Biolib.com?
 
-These following steps are all based on our [Biolib applications guide](https://biolib.com/docs/building-applications/intro/).
+The following steps are all based on our [Biolib applications guide](https://biolib.com/docs/building-applications/intro/).
 
 #### Step 1: Create your [prediction app](https://github.com/biolib/example-prediction-app/blob/main/predict.py) (this one counts Alanines in a FASTA file)
 
