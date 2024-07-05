@@ -1,4 +1,5 @@
 Everything you need to deploy this example app is available here: https://github.com/biolib/example-prediction-app
+This guide is based on the Biolib applications guide here: https://biolib.com/docs/building-applications/intro/
 
 ## Introduction
 
