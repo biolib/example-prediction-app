@@ -5,11 +5,9 @@ https://github.com/biolib/example-prediction-app
 
 Everytime you run a job on Biolib.com, an AWS server runs a Docker image you built. The docker image contains the exact program and environment you've specified, making your app highly reproducible and infinitely scaleable.
 
-How do we deploy an app on Biolib.com?
+How do we deploy our app on Biolib.com?
 
-Here is an example with a simple [predict.py](predict.py) program that calculates the number of Alanines in a FASTA file.
-
-#### Step 1: Create your [prediction app](predict.py)
+#### Step 1: Create your [prediction app](predict.py) (this one counts Alanines in a FASTA file)
 
 ```bash
 # Download this repository
@@ -42,8 +40,8 @@ python predict.py --fasta sample.fasta --outfile predictions.fasta
 # Next we create a new app on Biolib.com
 https://biolib.com/new/
 
-# I've used the name test-app, found here:
-https://biolib.com/BioLibDevelopment/test-app/
+# I've used the name prediction-app, found here:
+https://biolib.com/BioLibDevelopment/prediction-app
 
 # Before we push, we need to setup an API token (so Biolib knows who we are)
 https://biolib.com/settings/api-tokens/
@@ -59,10 +57,9 @@ https://biolib.com/BioLibDevelopment/prediction-app/
 ```
 
 ## More Biolib app documentation
-- This example app: https://github.com/biolib/example-prediction-app
 - Building applications guide: https://biolib.com/docs/building-applications/intro/
-- config.yml guide: https://biolib.com/docs/building-applications/syntax-of-config-yml/
 - Dockerfile documentation: https://docs.docker.com/reference/dockerfile/
+- .biolig/config.yml guide: https://biolib.com/docs/building-applications/syntax-of-config-yml/
 
 ## Overview of files
 ```markdown
