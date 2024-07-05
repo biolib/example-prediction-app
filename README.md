@@ -91,7 +91,7 @@ Biolib tips:
 - Docker solves the problem of "but it runs on my machine!". A Docker image can run on any machine (supporting Docker), can easily be scaled to 1.000 instances, and has an exact, reproducible environment now and 20 years in the future.
 
 **What exactly does pybiolib do?**
-- For our purposes, it finds the Docker image you built (from the tag you specified in .biolig/config.yml) and pushes it to Biolib. It also pushes a few other specific files if present (README, images linked to in README, LICENSE, and of course, the config.yml file).
+- For our purposes, it finds the Docker image you built (from the tag you specified in .biolig/config.yml) and pushes it to Biolib. It also pushes a few other specific files, if they are present, including LICENSE, README, images in README, and of course, the .biolib/config.yml file).
 
 **It doesn't work!**
-- Please ask for help in our Biolib community [biolibcommunity.slack.com](https://biolibcommunity.slack.com/) and we're more than happy to help!
+- Please ask for help in our Biolib community [biolibcommunity.slack.com](https://biolibcommunity.slack.com/), and we are more than happy to help!
