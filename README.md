@@ -55,12 +55,6 @@ biolib push BioLibDevelopment/prediction-app
 # Now check it out on Biolib.com!
 https://biolib.com/BioLibDevelopment/prediction-app/
 ```
-
-## More Biolib app documentation
-- Building applications guide: https://biolib.com/docs/building-applications/intro/
-- Dockerfile documentation: https://docs.docker.com/reference/dockerfile/
-- .biolig/config.yml guide: https://biolib.com/docs/building-applications/syntax-of-config-yml/
-
 ## Overview of files
 ```markdown'
 ├── README.md               # This file
@@ -74,25 +68,31 @@ https://biolib.com/BioLibDevelopment/prediction-app/
 ├── LICENSE                 # Optional, app license
 ```
 
+## More Biolib app documentation
+- Building applications guide: https://biolib.com/docs/building-applications/intro/
+- .biolig/config.yml guide: https://biolib.com/docs/building-applications/syntax-of-config-yml/
+- Dockerfile documentation: https://docs.docker.com/reference/dockerfile/
+- How does Docker work? https://www.youtube.com/watch?app=desktop&v=IxzwNa-xuIo
+
 ## Best development practices
 Docker tips:
-- Use bash [dev.sh][dev.sh] for an interactive terminal inside the Docker container, including interactively editing your files inside and outside it (using bind mount)
-- Put "slow" operations in the beginning of the Dockerfile. Docker will cache your results, making future 'docker build' much faster
+- Use 'bash [dev.sh](dev.sh)' for an interactive terminal inside the Docker container, and interactively editing files inside/outside (using bind mount)
+- Put "slow" operations (pulling the base image, installing the environment) in the beginning of the Dockerfile. Docker will cache your results, making future 'docker build' much faster
 - Often using base images like 'ubuntu:22.04' (CPU) or 'nvidia/cuda:12.0.0-devel-ubuntu22.04' is easiest. Biolib automatically caches commonly used images. If you REALLY care about speed, try using 'alpine:latest'
 
 Biolib tips:
-- You can modify the interface of your online Biolib app with these .biolib/config.yml arguments: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
-- Use the main_output_file argument to automatically get a nice output visualization (recognizes CSV, FASTA, markdown and text files)
-- You can also run your Biolib app directly from Python. See examples here: https://biolib.com/docs/using-applications/python/
-- As a professional user, we offer fast, automatic building on our Biolib servers, every time you run git push. Simply modify this [.github/workflows/ci.yml](https://github.com/biolibtech/app-musite/blob/develop/.github/workflows/ci.yml) and put it in .github/workflows directory.
+- You can modify your Biolib.com app user-interface with these .biolib/config.yml arguments: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
+- Use the .biolig/config.yml argument 'main_output_file' to get nice output visualizations (recognizes CSV, FASTA, markdown and text files)
+- You can run your Biolib app directly from Python. See examples here: https://biolib.com/docs/using-applications/python/
+- Automatically build your images on our servers (FAST) every time you git push with our Biolib Pro subscription. Copy + modify this file [.github/workflows/ci.yml](https://github.com/biolibtech/app-musite/blob/develop/.github/workflows/ci.yml) and put it in .github/workflows directory.
 
 ## FAQ
 
-Q: Why use Docker?
-A: Docker solves the problem of "but it runs on my machine!". A Docker image can run on any machine (supporting Docker), can easily be scaled to 1.000 instances, and has an exact, reproducible environment now and 20 years in the future.
+**Why use Docker?**
+- Docker solves the problem of "but it runs on my machine!". A Docker image can run on any machine (supporting Docker), can easily be scaled to 1.000 instances, and has an exact, reproducible environment now and 20 years in the future.
 
-Q: What exactly does pybiolib do?
-A: For our purposes, it finds the Docker image you built (from the tag you specified in .biolig/config.yml) and pushes it to Biolib. It also pushes a few other specific files if present (README, images linked to in README, LICENSE, and of course, the config.yml file).
+**What exactly does pybiolib do?**
+- For our purposes, it finds the Docker image you built (from the tag you specified in .biolig/config.yml) and pushes it to Biolib. It also pushes a few other specific files if present (README, images linked to in README, LICENSE, and of course, the config.yml file).
 
-Q: It doesn't work!
-A: Please ask for help in our Biolib community (biolibcommunity.slack.com) and we're more than happy to help!
+**It doesn't work!**
+- Please ask for help in our Biolib community (biolibcommunity.slack.com) and we're more than happy to help!
