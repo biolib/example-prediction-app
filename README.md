@@ -62,18 +62,16 @@ https://biolib.com/BioLibDevelopment/prediction-app/
 - .biolig/config.yml guide: https://biolib.com/docs/building-applications/syntax-of-config-yml/
 
 ## Overview of files
-```markdown
+```markdown'
+├── README.md               # This file
+├── Dockerfile              # How we build the Docker image (everything you need, code-wise)
 ├── .biolib
 │   └── config.yml          # How Biolib interacts with the image 
-├── Dockerfile              # How we build the image (everything you need, code-wise)
-├── LICENSE                 # Optional app LICENSE
-├── README.md               # What you're reading now
-├── data
-│   └── sample.fasta        # Example input file
-├── output
-│   └── predictions.csv     # Example output file
-├── predict.py              # Main script
-├── requirements.txt        # App environment requirements (pip)
+├── predict.py              # Prediction script
+├── sample.fasta            # Example input file
+├── predictions.csv         # Example output file
+├── requirements.txt        # Dependencies (installed with pip)
+├── LICENSE                 # Optional, app license
 ```
 
 ## Best development practices
