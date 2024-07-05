@@ -26,9 +26,6 @@ python --fasta sample.fasta --outfile predictions.fasta
 #### Step 2: Create a [Dockerfile](Dockerfile) and run docker build
 
 ```bash
-# We've already made an example Dockerfile
-less Dockerfile
-
 # Build image from Dockerfile in this directory, with tag "prediction-app"
 docker build . --platform linux/amd64 -t prediction-app
 
