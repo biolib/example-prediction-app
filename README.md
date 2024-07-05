@@ -75,15 +75,15 @@ https://biolib.com/BioLibDevelopment/prediction-app/
 
 ## Best development practices
 Docker tips:
-- Use 'bash [dev.sh](https://github.com/biolib/example-prediction-app/blob/main/dev.sh)' for an interactive terminal inside the Docker container, and interactively editing files inside/outside (using bind mount)
-- Put "slow" operations (pulling the base image, installing the environment) in the beginning of the Dockerfile. Docker will cache your results, making future 'docker build' much faster
-- Often using base images like 'ubuntu:22.04' (CPU) or 'nvidia/cuda:12.0.0-devel-ubuntu22.04' is easiest. Biolib automatically caches commonly used images. If you REALLY care about speed, try using 'alpine:latest'
+- Dockerfile: Start with "slow" things, and put files you're likely to change last. Docker caches your build in layers, making quick script changes very quick to rebuild if they're in the last layers.
+- Dockerfile: Often using base images like 'ubuntu:22.04' (CPU) or 'nvidia/cuda:12.0.0-devel-ubuntu22.04' is easiest for development. Biolib automatically caches commonly used images for faster loading. If you REALLY care about speed, try using 'alpine:latest'
+- Use 'bash [dev.sh](https://github.com/biolib/example-prediction-app/blob/main/dev.sh)' to run the Docker image with an interactive terminal, and bind mount files inside the container (edit files inside/outside - super useful!)
 
 Biolib tips:
-- You can modify your Biolib.com app user-interface with these .biolib/config.yml arguments: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
-- Use the .biolig/config.yml argument 'main_output_file' to get nice output visualizations (recognizes CSV, FASTA, markdown and text files)
-- You can run your Biolib app directly from Python. See examples here: https://biolib.com/docs/using-applications/python/
-- Automatically build your images on our servers (FAST) every time you git push with our Biolib Pro subscription. Copy + modify this file [.github/workflows/ci.yml](https://github.com/biolibtech/app-musite/blob/develop/.github/workflows/ci.yml) and put it in .github/workflows directory.
+- .biolig/config.yml - Create a nice app user-interface with these arguments: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
+- .biolig/config.yml - Use 'main_output_file' to get nicer output visualizations (for CSV, FASTA, markdown and text files)
+- You can acess your live Biolib app directly from Python. See API examples here: https://biolib.com/docs/using-applications/python/
+- Suffering from slow Docker build times? Automatically build on our servers every time you git push with our Biolib Pro subscription. Simply modify this file [.github/workflows/ci.yml](https://github.com/biolibtech/app-musite/blob/develop/.github/workflows/ci.yml) and put it in your .github/workflows directory.
 
 ## FAQ
 
