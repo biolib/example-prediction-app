@@ -1,11 +1,12 @@
 Everything you need to deploy this example app is available here: https://github.com/biolib/example-prediction-app
-This guide is based on the Biolib applications guide here: https://biolib.com/docs/building-applications/intro/
 
-## Introduction
+## How to deploy an app on Biolib.com
 
 Everytime you run a job on Biolib.com, an AWS server runs a Docker image you built. The docker image contains the exact program and environment you've specified, making your app highly reproducible and infinitely scaleable.
 
 How do we deploy our app on Biolib.com?
+
+These steps are all based on our [Biolib applications guide](https://biolib.com/docs/building-applications/intro/).
 
 #### Step 1: Create your [prediction app](https://github.com/biolib/example-prediction-app/blob/main/predict.py) (this one counts Alanines in a FASTA file)
 
