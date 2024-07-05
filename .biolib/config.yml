@@ -1,21 +1,22 @@
-biolib_version: 2 # used for backwards compatibility
-
-# Dockerfile name, entrypoint and input/output data
+# The .biolib/config.yml file tells our Biolib backend:
+# - Where to find your already built built Docker image (using its tag)
+# - What inputs and outputs the app uses
+# - How to setup the Biolib.com app user-interface
 # Read more: https://biolib.com/docs/building-applications/syntax-of-config-yml/#modules-
 
-# Must have at least one module, named "main" which is the entrypoint of the Docker container
+biolib_version: 2 # used for backwards compatibility
+
 modules:
-  main:
-    working_directory: /home/biolib/  # Default is root /
+  main:  # Must have at least 1 module, named "main" = the entry point of the Docker container
+    working_directory: /home/biolib/  # Default /
     image: 'local-docker://prediction-app:latest' # Name of locally built Docker image
-    # image: 'dockerhub://ncbi/blast:latest' # Example Docker image from Dockerhub
     command: 'python3 /home/biolib/predict.py'  # Command to run inside the container (environment)
     input_files:  # Where to put user input files inside the container
       - COPY / /home/biolib/
     output_files:  # Which output files or folders to return to the user from the container
       - COPY /home/biolib/ / 
 
-# Which input components to use in web based GUI for the app
+# Biolib.com app user-interface
 # Read more: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
 arguments:
   - 
@@ -30,19 +31,19 @@ arguments:
     # Extra options
     key: '--model'
     type: toggle
-    description: I <3 BioLib
+    description: I love BioLib
     options:
           "on": "model1"
           "off": "model2"
 
 # Visualize outputs based on output file extension
-# Nb: File taken out of container is in root (???)
 main_output_file: /predictions.csv # Optional
 
 # Extra web app arguments
 description_file: README.md # Renders README as markdown (default README.md)
 license_file: LICENSE # License in side-bar (default LICENSE)
 
+# Citation field (left side-bar). Uses Bibtex but in YAML format.
 citation:
     entry_type: misc
     author: Magnus Haraldson Høie, Mads Damgaard Pedersen and others
