@@ -94,4 +94,4 @@ Biolib tips:
 - For our purposes, it finds the Docker image you built (from the tag you specified in .biolig/config.yml) and pushes it to Biolib. It also pushes a few other specific files if present (README, images linked to in README, LICENSE, and of course, the config.yml file).
 
 **It doesn't work!**
-- Please ask for help in our Biolib community (biolibcommunity.slack.com) and we're more than happy to help!
+- Please ask for help in our Biolib community [biolibcommunity.slack.com](https://biolibcommunity.slack.com/) and we're more than happy to help!
