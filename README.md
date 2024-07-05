@@ -3,14 +3,13 @@ https://github.com/biolib/example-prediction-app
 
 ## Introduction
 
-Everytime you run a job on Biolib.com, a Docker image containing your app is spun up on an AWS server. The docker image contains the exact programs and environment you've specified, making your app highly reproducible and infinitely scaleable.
+Everytime you run a job on Biolib.com, an AWS server runs a Docker image you built. The docker image contains the exact program and environment you've specified, making your app highly reproducible and infinitely scaleable.
 
 How do we deploy an app on Biolib.com?
 
-Here is an example with a simple program that calculates the number of Alanines in a FASTA file.
+Here is an example with a simple [predict.py](predict.py) program that calculates the number of Alanines in a FASTA file.
 
-#### Step 1: Create your prediction app, with input and output files
-- Example [prediction app](predict.py)
+#### Step 1: Create your [prediction app](predict.py)
 
 ```bash
 # Download this repository
@@ -24,9 +23,7 @@ pip install -r requirements.txt
 python --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 2: Create a Dockerfile and build its image
-- Example Dockerfile: [Dockerfile](Dockerfile)
-- Dockerfile documentation: [https://docs.docker.com/reference/dockerfile/](https://docs.docker.com/reference/dockerfile/)
+#### Step 2: Create a [Dockerfile](Dockerfile) and run docker build
 
 ```bash
 # We've already made an example Dockerfile
