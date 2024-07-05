@@ -1,20 +1,51 @@
-biolib_version: 2
+biolib_version: 2 # used for backwards compatibility
+
+# Dockerfile name, entrypoint and input/output data
+# Read more: https://biolib.com/docs/building-applications/syntax-of-config-yml/#modules-
+
+# Must have at least one module, named "main" which is the entrypoint of the Docker container
 modules:
   main:
-    image: 'local-docker://prediction-app:latest'
-    command: 'python3 predict.py'  # Command to run inside the container (environment)
+    working_directory: /home/biolib/  # Default is root /
+    image: 'local-docker://prediction-app:latest' # Name of locally built Docker image
+    # image: 'dockerhub://ncbi/blast:latest' # Example Docker image from Dockerhub
+    command: 'python3 /home/biolib/predict.py'  # Command to run inside the container (environment)
     input_files:  # Where to put user input files inside the container
-      - COPY / /
+      - COPY / /home/biolib/
     output_files:  # Which output files or folders to return to the user from the container
-      - COPY /predictions.csv / 
+      - COPY /home/biolib/output/ / 
 
 # Which input components to use in web based GUI for the app
+# Read more: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
 arguments:
   - 
-    default_value: sample.fasta
-    description: 'Enter one or more proteins in FASTA format'
-    key: '--fasta'
-    key_value_separator: ' '
-    required: true
-    type: text-file
-    
+    key: '--fasta'  # predict.py input argument
+    description: 'Enter one or more proteins in FASTA format' # required
+    key_value_separator: ' '  # optional, default is ' '
+    default_value: /home/biolib/data/sample.fasta  # Pre-filled input file
+    type: text-file # required. Can also have text, file, hidden, toggle, number, radio, dropbox, multiselect
+    required: true # optional, default is true
+
+  - 
+    # Extra options
+    key: '--model'
+    type: toggle
+    description: I <3 BioLib
+    options:
+          "on": "model1"
+          "off": "model2"
+
+# Visualize outputs based on output file extension
+# Nb: File taken out of container is in root (???)
+main_output_file: /predictions.csv # Optional
+
+# Extra web app arguments
+description_file: README.md # Renders README as markdown (default README.md)
+license_file: LICENSE # License in side-bar (default LICENSE)
+
+citation:
+    entry_type: misc
+    author: Magnus Haraldson Høie, Mads Damgaard Pedersen and others
+    title: prediction-app
+    publisher: Biolib Research
+    year: '2024'

@@ -1,28 +1,53 @@
 import argparse
-import pickle
+import os
 
-import numpy as np
 import pandas as pd
 from Bio import SeqIO
-from sklearn import tree
 
+# Input args
 parser = argparse.ArgumentParser()
-parser.add_argument("--fasta", default="sample.fasta")
+parser.add_argument("--fasta", default="data/sample.fasta")
+parser.add_argument("--outfile", default="output/predictions.csv")
+parser.add_argument("--model", default="model1")
 args = parser.parse_args()
 
-X = [str(record.seq) for record in list(SeqIO.parse(args.fasta, "fasta"))]
+print(args)
 
-print(f"Running prediction on {len(X)} sequences")
 
-# Load model
-with open("model.pickle", "rb") as model_file:
-    model: tree.DecisionTreeRegressor = pickle.load(model_file)
-vectorize_on_length = np.vectorize(len)
-X_vectorized = np.reshape(vectorize_on_length(X), (-1, 1))
-predictions = model.predict(X_vectorized)
+# Functions
+def count_alanines(seq):
+    return list(seq).count("A")
 
-# Save predictions to file
-df_predictions = pd.DataFrame({"prediction": predictions})
-df_predictions.to_csv("predictions.csv", index=False)
 
-print(f"{len(predictions)} predictions saved to a csv file")
+def main(args):
+
+    # Load data
+    if os.path.exists(args.fasta):
+        seq_dict = SeqIO.to_dict(SeqIO.parse(args.fasta, "fasta"))
+    else:
+        raise Exception(f"File not found: {args.fasta}")
+
+    # Predict
+    ids = list(seq_dict.keys())
+    predictions = []
+    for _id in ids:
+        seq = seq_dict[_id]
+        pred = count_alanines(seq)
+        predictions.append(pred)
+
+    # Output CSV
+    df_csv = pd.DataFrame(
+        {
+            "sample": ids,
+            "prediction": predictions,
+        }
+    )
+
+    # Save predictions to file
+    print(f"Writing {len(df_csv)} predictions to {args.outfile}")
+    df_csv.to_csv(args.outfile, index=False)
+
+
+if __name__ == "__main__":
+    os.makedirs(os.path.dirname(args.outfile), exist_ok=True)
+    main(args)
