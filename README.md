@@ -23,7 +23,7 @@ pip install -r requirements.txt
 python --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 2: Create a [Dockerfile](Dockerfile) and run docker build
+#### Step 2: Create a [Dockerfile](Dockerfile), build and test it
 
 ```bash
 # Build image from Dockerfile in this directory, with tag "prediction-app"
@@ -32,23 +32,13 @@ docker build . --platform linux/amd64 -t prediction-app
 # Run the image as a container, and start a shell within it
 docker run -it prediction-app /bin/bash
 
-# Now test your app again!
+# Now test your app inside the container!
 python predict.py --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 3: Everything successful? Let's deploy it on Biolib.com!
-- Example [.biolib/config.yml](.biolib/config.yml) file
-- Read more: # See https://biolib.com/docs/building-applications/syntax-of-config-yml/
+#### Step 3: Create a [.biolib/config.yml](.biolib/config.yml) file, and deploy our image on Biolib.com
 
 ```bash
-# First we need to setup a .biolib/config.yml file. We've already done this.
-# 
-# The .biolib/config.yml file tells our Biolib backend:
-# - Where to find the built image (we need the image tag name)
-# - What input arguments the app expects, and output file
-# - How the web app should look (input arguments etc)
-less .biolib/config.yml
-
 # Next we create a new app on Biolib.com
 https://biolib.com/new/
 
