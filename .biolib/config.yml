@@ -13,7 +13,7 @@ modules:
     input_files:  # Where to put user input files inside the container
       - COPY / /home/biolib/
     output_files:  # Which output files or folders to return to the user from the container
-      - COPY /home/biolib/output/ / 
+      - COPY /home/biolib/ / 
 
 # Which input components to use in web based GUI for the app
 # Read more: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
@@ -22,7 +22,7 @@ arguments:
     key: '--fasta'  # predict.py input argument
     description: 'Enter one or more proteins in FASTA format' # required
     key_value_separator: ' '  # optional, default is ' '
-    default_value: /home/biolib/data/sample.fasta  # Pre-filled input file
+    default_value: /home/biolib/sample.fasta  # Pre-filled input file
     type: text-file # required. Can also have text, file, hidden, toggle, number, radio, dropbox, multiselect
     required: true # optional, default is true
 

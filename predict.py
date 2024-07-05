@@ -6,8 +6,8 @@ from Bio import SeqIO
 
 # Input args
 parser = argparse.ArgumentParser()
-parser.add_argument("--fasta", default="data/sample.fasta")
-parser.add_argument("--outfile", default="output/predictions.csv")
+parser.add_argument("--fasta", default="sample.fasta")
+parser.add_argument("--outfile", default="predictions.csv")
 parser.add_argument("--model", default="model1")
 args = parser.parse_args()
 
@@ -49,5 +49,4 @@ def main(args):
 
 
 if __name__ == "__main__":
-    os.makedirs(os.path.dirname(args.outfile), exist_ok=True)
     main(args)

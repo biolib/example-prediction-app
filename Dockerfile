@@ -10,8 +10,7 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # Now run
-COPY data/sample.fasta data/sample.fasta
-RUN mkdir output/
+COPY sample.fasta .
 COPY predict.py .
 
 # Entrypoint (Nb: Will break dev.sh -> use .biolib/config.yml instead

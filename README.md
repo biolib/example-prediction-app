@@ -21,7 +21,7 @@ cd example-prediction-app
 pip install -r requirements.txt
 
 # Test that the app works!
-python --fasta data/sample.fasta --outfile predictions.fasta
+python --fasta sample.fasta --outfile predictions.fasta
 ```
 
 #### Step 2: Create a Dockerfile and build its image
@@ -35,14 +35,11 @@ less Dockerfile
 # Build image from Dockerfile in this directory, with tag "prediction-app"
 docker build . --platform linux/amd64 -t prediction-app
 
-# List your images and check that prediction-app is there
-docker images
-
 # Run the image as a container, and start a shell within it
 docker run -it prediction-app /bin/bash
 
 # Now test your app again!
-python3 --fasta data/sample.fasta --outfile predictions.fasta
+python predict.py --fasta sample.fasta --outfile predictions.fasta
 ```
 
 #### Step 3: Everything successful? Let's deploy it on Biolib.com!
@@ -71,10 +68,10 @@ https://biolib.com/settings/api-tokens/
 export BIOLIB_TOKEN=[your_api_token]
 
 # Everything OK? Let's push the app!
-biolib push BioLibDevelopment/app-magnus-testing
+biolib push BioLibDevelopment/prediction-app
 
 # Now check it out on Biolib.com!
-https://biolib.com/BioLibDevelopment/test-app/
+https://biolib.com/BioLibDevelopment/prediction-app/
 ```
 
 ## More Biolib app documentation
