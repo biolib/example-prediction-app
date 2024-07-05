@@ -75,7 +75,7 @@ https://biolib.com/BioLibDevelopment/prediction-app/
 
 ## Best development practices
 Docker tips:
-- Use 'bash [dev.sh](dev.sh)' for an interactive terminal inside the Docker container, and interactively editing files inside/outside (using bind mount)
+- Use 'bash [dev.sh](https://github.com/biolib/example-prediction-app/blob/main/dev.sh)' for an interactive terminal inside the Docker container, and interactively editing files inside/outside (using bind mount)
 - Put "slow" operations (pulling the base image, installing the environment) in the beginning of the Dockerfile. Docker will cache your results, making future 'docker build' much faster
 - Often using base images like 'ubuntu:22.04' (CPU) or 'nvidia/cuda:12.0.0-devel-ubuntu22.04' is easiest. Biolib automatically caches commonly used images. If you REALLY care about speed, try using 'alpine:latest'
 
