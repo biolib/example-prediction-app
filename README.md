@@ -1,5 +1,4 @@
-Everything you need to deploy this example app is available here:
-https://github.com/biolib/example-prediction-app
+Everything you need to deploy this example app is available here: https://github.com/biolib/example-prediction-app
 
 ## Introduction
 
@@ -7,7 +6,7 @@ Everytime you run a job on Biolib.com, an AWS server runs a Docker image you bui
 
 How do we deploy our app on Biolib.com?
 
-#### Step 1: Create your [prediction app](predict.py) (this one counts Alanines in a FASTA file)
+#### Step 1: Create your [prediction app](https://github.com/biolib/example-prediction-app/blob/main/predict.py) (this one counts Alanines in a FASTA file)
 
 ```bash
 # Download this repository
@@ -21,7 +20,7 @@ pip install -r requirements.txt
 python --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 2: Create a [Dockerfile](Dockerfile), build and test it
+#### Step 2: Create a [Dockerfile](https://github.com/biolib/example-prediction-app/blob/main/Dockerfile), build and test it
 
 ```bash
 # Build image from Dockerfile in this directory, with tag "prediction-app"
@@ -34,7 +33,7 @@ docker run -it prediction-app /bin/bash
 python predict.py --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 3: Create a [.biolib/config.yml](.biolib/config.yml) file, and deploy our image on Biolib.com
+#### Step 3: Create a [.biolib/config.yml](https://github.com/biolib/example-prediction-app/blob/main/.biolib/config.yml) file, and deploy our image on Biolib.com
 
 ```bash
 # Next we create a new app on Biolib.com
