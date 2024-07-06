@@ -96,11 +96,7 @@ Biolib tips:
 - <code>.biolig/config.yml</code> - Create a nice app user-interface with these arguments: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
 - <code>.biolig/config.yml</code> - Use 'main_output_file' to get nicer output visualizations (for CSV, FASTA, markdown and text files)
 
-<a href="https://biolib.com/BioLibDevelopment/prediction-app/">
-<picture>
-  <img alt="Image Alt Text"  src="https://github.com/biolib/example-prediction-app/blob/main/images/app_output.png?raw=true" width="600" </img>
-</picture>
-</a>
+![https://biolib.com/BioLibDevelopment/prediction-app/](https://github.com/biolib/example-prediction-app/blob/main/images/app_output.png)
 
 ## FAQ
 
@@ -113,8 +109,4 @@ Biolib tips:
 **It doesn't work!**
 - Please ask for help in our Biolib community [biolibcommunity.slack.com](https://biolibcommunity.slack.com/), and we are more than happy to help!
 
-<a href="https://biolibcommunity.slack.com/">
-<picture>
-  <img alt="Image Alt Text"  src="https://github.com/biolib/example-prediction-app/blob/main/images/biolib_community.png?raw=true" width="400" </img>
-</picture>
-</a>
+![https://biolibcommunity.slack.com/](https://github.com/biolib/example-prediction-app/blob/main/images/biolib_community.png)
