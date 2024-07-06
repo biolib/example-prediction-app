@@ -2,14 +2,14 @@ Everything you need to deploy this example app is available here: https://github
 
 ## How to deploy an app on Biolib.com
 
-Everytime you run a job on Biolib.com, an AWS server runs a Docker image you built. The docker image contains the exact program and environment you've specified, making your app highly reproducible and infinitely scaleable.
+Every time you run an app on Biolib.com, we spin up a Docker container containing the app on our servers. This container contains the exact program and environment you've specified as a developer, making the app highly reproducible. And infinitely scaleable!
 
-How do we deploy our app on Biolib.com?
+So, how do you deploy an app on Biolib.com?
 
-#### Step 1: Create your [prediction app](https://github.com/biolib/example-prediction-app/blob/main/predict.py) (this one counts Alanines in a FASTA file)
+#### Step 0: Create your [prediction app](https://github.com/biolib/example-prediction-app/blob/main/predict.py) (this one counts Alanines in a FASTA file)
 
 ```bash
-# Download this repository
+# Download this example repository
 git clone https://github.com/biolib/example-prediction-app
 cd example-prediction-app
 
@@ -20,9 +20,12 @@ pip install -r requirements.txt
 python --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 2: Create a [Dockerfile](https://github.com/biolib/example-prediction-app/blob/main/Dockerfile), build and test it
+#### Step 1: Create your [Dockerfile](https://github.com/biolib/example-prediction-app/blob/main/Dockerfile), build and test it
 
 ```bash
+# (We've already done this - but you can use 'docker init' in the future)
+cat Dockerfile
+
 # Build image from Dockerfile in this directory, with tag "prediction-app"
 docker build . --platform linux/amd64 -t prediction-app
 
@@ -33,9 +36,12 @@ docker run -it prediction-app /bin/bash
 python predict.py --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 3: Create a [.biolib/config.yml](https://github.com/biolib/example-prediction-app/blob/main/.biolib/config.yml) file, and deploy our image on Biolib.com
+#### Step 2: Create your [.biolib/config.yml](https://github.com/biolib/example-prediction-app/blob/main/.biolib/config.yml) file, and deploy our image on Biolib.com
 
 ```bash
+# (We've already done this - but you can use 'biolib init' in the future)
+cat .biolib/config.yml
+
 # Next we create a new app on Biolib.com
 https://biolib.com/new/
 
