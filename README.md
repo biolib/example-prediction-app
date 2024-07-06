@@ -8,7 +8,7 @@ So, how do you deploy an app on Biolib.com?
 
 #### Requirements:
 - Install Docker: https://docs.docker.com/get-docker/
-- Install [pybiolib](https://pypi.org/project/pybiolib/): <Code>pip3 install -U pybiolib</Code>
+- Install [pybiolib](https://pypi.org/project/pybiolib/): `pip3 install -U pybiolib`
 
 #### Step 1: Create your [prediction app](https://github.com/biolib/example-prediction-app/blob/main/predict.py) (this one counts Alanines in a FASTA file)
 
@@ -24,7 +24,7 @@ pip install -r requirements.txt
 python --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 1: Create your <code>[Dockerfile](https://github.com/biolib/example-prediction-app/blob/main/Dockerfile)</code>, build and test it
+#### Step 1: Create your `[Dockerfile](https://github.com/biolib/example-prediction-app/blob/main/Dockerfile)`, build and test it
 
 ```bash
 # (We've already done this - but you can use 'docker init' in the future)
@@ -40,7 +40,7 @@ docker run -it prediction-app /bin/bash
 python predict.py --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 3: Create your <code>[.biolib/config.yml](https://github.com/biolib/example-prediction-app/blob/main/.biolib/config.yml)</code> file, and deploy our image on Biolib.com
+#### Step 3: Create your `[.biolib/config.yml](https://github.com/biolib/example-prediction-app/blob/main/.biolib/config.yml)` file, and deploy our image on Biolib.com
 
 ```bash
 # (We've already done this - but you can use 'biolib init' in the future)
@@ -80,21 +80,21 @@ https://biolib.com/BioLibDevelopment/prediction-app/
 
 ## More Biolib app documentation
 - Building applications guide: https://biolib.com/docs/building-applications/intro/
-- <code>.biolig/config.yml</code> guide: https://biolib.com/docs/building-applications/syntax-of-config-yml/
-- <code>Dockerfile</code> documentation: https://docs.docker.com/reference/dockerfile/
+- `.biolig/config.yml` guide: https://biolib.com/docs/building-applications/syntax-of-config-yml/
+- `Dockerfile` documentation: https://docs.docker.com/reference/dockerfile/
 - How does Docker work? https://www.youtube.com/watch?app=desktop&v=IxzwNa-xuIo
 
 ## Best development practices
 Docker tips:
-- <code>Dockerfile</code>: Start with "slow" things, and put files you're likely to change last. Docker caches your build in layers, making quick script changes very quick to rebuild if they're in the last layers.
-- <code>Dockerfile</code>: Often using base images like 'ubuntu:22.04' (CPU) or 'nvidia/cuda:12.0.0-devel-ubuntu22.04' is easiest for development. Biolib automatically caches commonly used images for faster loading. If you REALLY care about speed, try using 'alpine:latest'
-- Use <code>[dev.sh](https://github.com/biolib/example-prediction-app/blob/main/dev.sh)</code> to run the Docker image with an interactive terminal, and bind mount files inside the container (edit files inside/outside - super useful!)
+- `Dockerfile`: Start with "slow" things, and put files you're likely to change last. Docker caches your build in layers, making quick script changes very quick to rebuild if they're in the last layers.
+- `Dockerfile`: Often using base images like 'ubuntu:22.04' (CPU) or 'nvidia/cuda:12.0.0-devel-ubuntu22.04' is easiest for development. Biolib automatically caches commonly used images for faster loading. If you REALLY care about speed, try using 'alpine:latest'
+- Use `[dev.sh](https://github.com/biolib/example-prediction-app/blob/main/dev.sh)` to run the Docker image with an interactive terminal, and bind mount files inside the container (edit files inside/outside - super useful!)
 - Suffering from slow Docker build times? Automatically build on our servers every time you git push with our Biolib Pro subscription. Simply modify this file [.github/workflows/ci.yml](https://github.com/biolibtech/app-musite/blob/develop/.github/workflows/ci.yml) and put it in your .github/workflows directory.
 
 Biolib tips:
 - You can acess your live Biolib app directly from Python. See API examples here: https://biolib.com/docs/using-applications/python/
-- <code>.biolig/config.yml</code> - Create a nice app user-interface with these arguments: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
-- <code>.biolig/config.yml</code> - Use 'main_output_file' to get nicer output visualizations (for CSV, FASTA, markdown and text files)
+- `.biolig/config.yml` - Create a nice app user-interface with these arguments: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
+- `.biolig/config.yml` - Use 'main_output_file' to get nicer output visualizations (for CSV, FASTA, markdown and text files)
 
 ![https://biolib.com/BioLibDevelopment/prediction-app/](images/app_output.png)
 
