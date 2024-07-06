@@ -8,7 +8,7 @@ So, how do you deploy an app on Biolib.com?
 
 #### Requirements:
 - Install Docker: https://docs.docker.com/get-docker/
-- Install [pybiolib](https://pypi.org/project/pybiolib/): <code>pip3 install -U pybiolib</code>
+- Install [pybiolib](https://pypi.org/project/pybiolib/): <Code>pip3 install -U pybiolib</Code>
 
 #### Step 1: Create your [prediction app](https://github.com/biolib/example-prediction-app/blob/main/predict.py) (this one counts Alanines in a FASTA file)
 
