@@ -24,7 +24,7 @@ pip install -r requirements.txt
 python --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 1: Create your [Dockerfile](https://github.com/biolib/example-prediction-app/blob/main/Dockerfile), build and test it
+#### Step 2: Create your [Dockerfile](https://github.com/biolib/example-prediction-app/blob/main/Dockerfile), build and test it
 
 ```bash
 # (We've already done this - but you can use 'docker init' in the future)
