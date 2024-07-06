@@ -89,12 +89,18 @@ Docker tips:
 - <code>Dockerfile</code>: Start with "slow" things, and put files you're likely to change last. Docker caches your build in layers, making quick script changes very quick to rebuild if they're in the last layers.
 - <code>Dockerfile</code>: Often using base images like 'ubuntu:22.04' (CPU) or 'nvidia/cuda:12.0.0-devel-ubuntu22.04' is easiest for development. Biolib automatically caches commonly used images for faster loading. If you REALLY care about speed, try using 'alpine:latest'
 - Use <code>[dev.sh](https://github.com/biolib/example-prediction-app/blob/main/dev.sh)</code> to run the Docker image with an interactive terminal, and bind mount files inside the container (edit files inside/outside - super useful!)
+- Suffering from slow Docker build times? Automatically build on our servers every time you git push with our Biolib Pro subscription. Simply modify this file [.github/workflows/ci.yml](https://github.com/biolibtech/app-musite/blob/develop/.github/workflows/ci.yml) and put it in your .github/workflows directory.
 
 Biolib tips:
+- You can acess your live Biolib app directly from Python. See API examples here: https://biolib.com/docs/using-applications/python/
 - <code>.biolig/config.yml</code> - Create a nice app user-interface with these arguments: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
 - <code>.biolig/config.yml</code> - Use 'main_output_file' to get nicer output visualizations (for CSV, FASTA, markdown and text files)
-- You can acess your live Biolib app directly from Python. See API examples here: https://biolib.com/docs/using-applications/python/
-- Suffering from slow Docker build times? Automatically build on our servers every time you git push with our Biolib Pro subscription. Simply modify this file [.github/workflows/ci.yml](https://github.com/biolibtech/app-musite/blob/develop/.github/workflows/ci.yml) and put it in your .github/workflows directory.
+
+<a href="https://biolib.com/BioLibDevelopment/prediction-app/">
+<picture>
+  <img alt="Image Alt Text"  src="https://github.com/biolib/example-prediction-app/blob/main/images/app_output.png?raw=true" width="600" </img>
+</picture>
+</a>
 
 ## FAQ
 
@@ -106,3 +112,9 @@ Biolib tips:
 
 **It doesn't work!**
 - Please ask for help in our Biolib community [biolibcommunity.slack.com](https://biolibcommunity.slack.com/), and we are more than happy to help!
+
+<a href="https://biolibcommunity.slack.com/">
+<picture>
+  <img alt="Image Alt Text"  src="https://github.com/biolib/example-prediction-app/blob/main/images/biolib_community.png?raw=true" width="400" </img>
+</picture>
+</a>
