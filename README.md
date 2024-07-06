@@ -40,7 +40,7 @@ docker run -it prediction-app /bin/bash
 python predict.py --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 3: Create your [.biolib/config.yml](https://github.com/biolib/example-prediction-app/blob/main/.biolib/config.yml) file, and deploy our image on Biolib.com
+#### Step 3: Create your [.biolib/config.yml](https://github.com/biolib/example-prediction-app/blob/main/.biolib/config.yml) file, and deploy your image on Biolib.com
 
 ```bash
 # (We've already done this - but you can use 'biolib init' in the future)
@@ -87,8 +87,8 @@ https://biolib.com/BioLibDevelopment/prediction-app/
 ## Development tips
 Docker tips:
 - `Dockerfile`: Start with "slow" things, and put files you're likely to change last. Docker caches your build in layers, making quick script changes very quick to rebuild if they're in the last layers.
-- `Dockerfile`: Often using base images like `ubuntu:22.04` (CPU) or `nvidia/cuda:12.0.0-devel-ubuntu22.04` is easiest for development. Biolib automatically caches commonly used images for faster loading. If you REALLY care about speed, try using `alpine:latest`
-- Use [dev.sh](https://github.com/biolib/example-prediction-app/blob/main/dev.sh) to run the Docker image with an interactive terminal, and bind mount files inside the container (edits files both inside and outside - huge time-saver)
+- `Dockerfile`: Often using base images like `ubuntu:22.04` (CPU) or `nvidia/cuda:12.0.0-devel-ubuntu22.04` (GPU) is easiest for development. Biolib automatically caches commonly used images for faster loading. If you REALLY care about speed, try using `alpine:latest`
+- Use [dev.sh](https://github.com/biolib/example-prediction-app/blob/main/dev.sh) to run the Docker container with an interactive terminal, and bind mount files inside the container (edits files both inside and outside - huge time-saver)
 - Suffering from slow Docker build times? Automatically build on our servers every time you git push with our Biolib Pro subscription. Simply modify this Github actions file [.github/workflows/ci.yml](https://github.com/biolibtech/app-musite/blob/develop/.github/workflows/ci.yml) and put it in your .github/workflows directory.
 
 Biolib tips:
@@ -105,9 +105,9 @@ Biolib tips:
 - Docker solves the problem of "but it runs on my machine!". A Docker container can run on any machine supporting Docker, can easily be scaled across thousands of jobs, and has an exact, reproducible environment now and 20 years into the future.
 
 **What exactly does [pybiolib](https://pypi.org/project/pybiolib/) do?**
-- For our purposes, it finds the Docker image you built (from the tag you specified in `.biolig/config.yml`) and pushes it to Biolib. It also pushes a few other files if present, including LICENSE, README, images in README, and of course, the `.biolib/config.yml` file). See more details here: 
+- For our purposes, it finds the Docker image you built (from the tag you specified in `.biolig/config.yml`) and pushes it to Biolib. It also pushes a few other files if present, including LICENSE, README, images in README, and of course, the `.biolib/config.yml` file).
 
 **It doesn't work!**
-- Please ask for help in our Biolib community [biolibcommunity.slack.com](https://biolibcommunity.slack.com/), and we are more than happy to help!
+- Please ask for help in our Biolib community slack ([biolibcommunity.slack.com](https://biolibcommunity.slack.com/)), and we are more than happy to help!
 
 ![https://biolibcommunity.slack.com/](images/biolib_community.png)
