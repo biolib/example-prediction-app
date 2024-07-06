@@ -6,7 +6,7 @@ Every time you run an app on Biolib.com, we spin up a Docker container containin
 
 So, how do you deploy an app on Biolib.com?
 
-#### Step 0: Create your [prediction app](https://github.com/biolib/example-prediction-app/blob/main/predict.py) (this one counts Alanines in a FASTA file)
+#### Step 1: Create your [prediction app](https://github.com/biolib/example-prediction-app/blob/main/predict.py) (this one counts Alanines in a FASTA file)
 
 ```bash
 # Download this example repository
@@ -36,7 +36,7 @@ docker run -it prediction-app /bin/bash
 python predict.py --fasta sample.fasta --outfile predictions.fasta
 ```
 
-#### Step 2: Create your [.biolib/config.yml](https://github.com/biolib/example-prediction-app/blob/main/.biolib/config.yml) file, and deploy our image on Biolib.com
+#### Step 3: Create your [.biolib/config.yml](https://github.com/biolib/example-prediction-app/blob/main/.biolib/config.yml) file, and deploy our image on Biolib.com
 
 ```bash
 # (We've already done this - but you can use 'biolib init' in the future)
