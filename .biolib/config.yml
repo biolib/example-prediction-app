@@ -3,6 +3,7 @@
 
 biolib_version: 2
 
+# Specify the name of your Docker image and its entrypoint (your app)
 modules:
   main:
     working_directory: /home/biolib/
@@ -25,7 +26,8 @@ arguments:
     required: true # true or false (default true)
 
   - 
-    # Extra options
+    # Optional: extra options
+    # https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
     key: '--model'
     type: toggle
     description: I love BioLib
@@ -34,13 +36,16 @@ arguments:
           "off": "model2"
 
 # Optional: visualize outputs based on output file extension
+# https://biolib.com/docs/building-applications/output/
 main_output_file: /predictions.csv
 
 # Optional: extra user interface options
+# https://biolib.com/docs/building-applications/syntax-of-config-yml/#license_file
 description_file: README.md # Renders README as markdown (default README.md). Also grabs images.
 license_file: LICENSE # License in side-bar (default LICENSE)
 
 # Optional: Citation field (left side-bar). Uses Bibtex but in YAML format.
+# https://www.bibtex.com/g/bibtex-format/
 citation:
     entry_type: misc
     author: Magnus Haraldson Høie, Mads Damgaard Pedersen and others
