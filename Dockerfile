@@ -1,4 +1,6 @@
-# For faster development, do large operations first
+# Tip: For faster development, put large, unlikely to change operations first
+# This only affects docker build times, not the final app
+
 # Base Docker image form https://hub.docker.com/_/python
 FROM python:3.10
 
@@ -9,9 +11,12 @@ WORKDIR /home/biolib
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
-# Now run
+# Copy example input data
 COPY sample.fasta .
+
+# Copy predict script last (most likely file to change during development)
 COPY predict.py .
 
-# Entrypoint (Nb: Will break dev.sh -> use .biolib/config.yml instead
+# We recommend not setting an ENTRYPOINT, as .biolib/config.yml specifies this anyway
+# (this makes it easier to develop the container interactively with docker run -it NAME or dev.sh)
 # ENTRYPOINT ["python3", "predict.py"]
