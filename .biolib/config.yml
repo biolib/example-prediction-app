@@ -1,14 +1,11 @@
-# The .biolib/config.yml file tells our Biolib backend:
-# - Where to find your already built built Docker image (using its tag)
-# - What inputs and outputs the app uses
-# - How to setup the Biolib.com app user-interface
+# The .biolib/config.yml file tells Biolib how to interact with the Docker container
 # Read more: https://biolib.com/docs/building-applications/syntax-of-config-yml/#modules-
 
-biolib_version: 2 # used for backwards compatibility
+biolib_version: 2
 
 modules:
-  main:  # Must have at least 1 module, named "main" = the entry point of the Docker container
-    working_directory: /home/biolib/  # Default /
+  main:
+    working_directory: /home/biolib/
     image: 'local-docker://prediction-app:latest' # Name of locally built Docker image
     command: 'python3 /home/biolib/predict.py'  # Command to run inside the container (environment)
     input_files:  # Where to put user input files inside the container
@@ -20,12 +17,12 @@ modules:
 # Read more: https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
 arguments:
   - 
-    key: '--fasta'  # predict.py input argument
-    description: 'Enter one or more proteins in FASTA format' # required
-    key_value_separator: ' '  # optional, default is ' '
-    default_value: /home/biolib/sample.fasta  # Pre-filled input file
-    type: text-file # required. Can also have text, file, hidden, toggle, number, radio, dropbox, multiselect
-    required: true # optional, default is true
+    key: '--fasta'  # Our predict.py input argument
+    description: 'Enter one or more proteins in FASTA format'
+    key_value_separator: ' '
+    default_value: /home/biolib/sample.fasta  # Example input file
+    type: text-file # Required. Choose from: text, file, hidden, toggle, number, radio, dropbox, multiselect
+    required: true # true or false (default true)
 
   - 
     # Extra options
@@ -36,14 +33,14 @@ arguments:
           "on": "model1"
           "off": "model2"
 
-# Visualize outputs based on output file extension
-main_output_file: /predictions.csv # Optional
+# Optional: visualize outputs based on output file extension
+main_output_file: /predictions.csv
 
-# Extra web app arguments
-description_file: README.md # Renders README as markdown (default README.md)
+# Optional: extra user interface options
+description_file: README.md # Renders README as markdown (default README.md). Also grabs images.
 license_file: LICENSE # License in side-bar (default LICENSE)
 
-# Citation field (left side-bar). Uses Bibtex but in YAML format.
+# Optional: Citation field (left side-bar). Uses Bibtex but in YAML format.
 citation:
     entry_type: misc
     author: Magnus Haraldson Høie, Mads Damgaard Pedersen and others
