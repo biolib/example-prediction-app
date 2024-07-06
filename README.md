@@ -1,6 +1,6 @@
 Everything you need to deploy this example app is available here: https://github.com/biolib/example-prediction-app
 
-## How to deploy an app on Biolib.com
+## How to deploy an app on Biolib.com in 5 minutes
 
 Every time you run an app on Biolib.com, we spin up a Docker container containing the app on our servers. This container contains the exact program and environment you've specified as a developer, making the app highly reproducible. And infinitely scaleable!
 
