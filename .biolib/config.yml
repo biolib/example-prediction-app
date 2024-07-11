@@ -30,7 +30,7 @@ arguments:
     # https://biolib.com/docs/building-applications/syntax-of-config-yml/#arguments
     key: '--model'
     type: toggle
-    description: I love BioLib
+    description: Run extra analysis (slow)
     options:
           "on": "model1"
           "off": "model2"
