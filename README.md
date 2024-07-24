@@ -35,6 +35,8 @@ docker build . --platform linux/amd64 -t prediction-app
 
 # Run the image as a container, and start a shell within it
 docker run -it prediction-app /bin/bash
+# OR
+bash dev.sh
 
 # Now test your app inside the container!
 python predict.py --fasta sample.fasta --outfile predictions.fasta
