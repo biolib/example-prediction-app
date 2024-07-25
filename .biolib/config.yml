@@ -37,7 +37,7 @@ arguments:
 
 # Optional: visualize outputs based on output file extension
 # https://biolib.com/docs/building-applications/output/
-main_output_file: /predictions.csv
+main_output_file: /predictions.tsv
 
 # Optional: extra user interface options
 # https://biolib.com/docs/building-applications/syntax-of-config-yml/#license_file
