@@ -45,8 +45,7 @@ def main(args):
 
     # Save predictions to file
     print(f"Writing {len(df_csv)} predictions to {args.outfile}")
-    df_csv.to_csv(args.outfile, index=False)
-
+    df_csv.to_csv(args.outfile, sep="\t", index=False)
 
 if __name__ == "__main__":
     main(args)
