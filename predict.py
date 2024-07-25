@@ -7,7 +7,7 @@ from Bio import SeqIO
 # Input args
 parser = argparse.ArgumentParser()
 parser.add_argument("--fasta", default="sample.fasta")
-parser.add_argument("--outfile", default="predictions.csv")
+parser.add_argument("--outfile", default="predictions.tsv")
 parser.add_argument("--model", default="model1")
 args = parser.parse_args()
 
