@@ -7,7 +7,7 @@ biolib_version: 2
 modules:
   main:
     working_directory: /home/biolib/
-    image: 'local-docker://prediction-app:latest' # Name of locally built Docker image
+    image: 'local-docker://app-prediction:latest' # Name of locally built Docker image
     command: 'python3 /home/biolib/predict.py'  # Command to run inside the container (environment)
     input_files:  # Where to put user input files inside the container
       - COPY / /home/biolib/

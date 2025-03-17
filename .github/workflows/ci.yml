@@ -6,4 +6,4 @@ jobs:
     secrets: inherit
     with:
       app-uri: BioLibDevelopment/prediction-app
-      docker-tag: prediction-app
+      docker-tag: app-prediction
