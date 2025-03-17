@@ -5,5 +5,5 @@ jobs:
     uses: biolibtech/biolib-github-templates/.github/workflows/app_build_and_push.yml@main
     secrets: inherit
     with:
-      app-uri: DTU/DeepTMHMM
-      docker-tag: app-deeptmhmm-wrapper
+      app-uri: BioLibDevelopment/prediction-app
+      docker-tag: prediction-app
